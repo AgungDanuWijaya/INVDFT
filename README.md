@@ -1,10 +1,10 @@
 # INVDFT: Java Program to optimize parameter for Exchange Correlation Functional in  Density Functional Theory
 INVDFT, a Java based software, employs the SCF technique to solve the KSDFT equation. The optimization of XC function parameters in INVDFT is accomplished using the Newton-Raphson and Monte Carlo methods
 ## Features
+- Parameter optimization of Exchange Correlation Functional
 - SCF with electron density mixing
-- Hartree-Fock
 - DFT: Neural Network, LDA and GGA functionals
-- Xchange Neural Network inversion
+- Hartree-Fock
 ## Requirements
 - Linux OS
 - Java (https://www.java.com/en/download/) version >= 11
