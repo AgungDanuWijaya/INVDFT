@@ -10,8 +10,8 @@ INVDFT, a Java based software, employs the SCF technique to solve the KSDFT equa
 - Java (https://www.java.com/en/download/) version >= 11
 -  MySQL for training ANN Exchange
 ## Example of parameter optimization
-
 ------------
+
 {
 "name": ["H","OH,O,H}","H2,H,H}","Na2,Na,Na}","H2S,S,H,H}"],
 "con": 0.0015936254980079682,
@@ -21,7 +21,9 @@ INVDFT, a Java based software, employs the SCF technique to solve the KSDFT equa
 "simpul": [1,1],
 "name_ann": "ann_new_dft"
 }
+
 ------------
+
 
 ## Example of DFT Calculation
 ------------
