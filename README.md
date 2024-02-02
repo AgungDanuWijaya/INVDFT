@@ -10,6 +10,10 @@ INVDFT, a Java based software, employs the SCF technique to solve the KSDFT equa
 - Java (https://www.java.com/en/download/) version >= 11
 -  MySQL for training ANN Exchange
 ## Example of parameter optimization
+
+The LSDA model in equation  can be simplified to equation. We will demonstrate how to use INVDFT to find the parameters $\beta, \gamma$ in equation and then compare it with the LSDA model, where the LSDA model has $\beta=-0.930525$ and $\gamma=1.3333$. 
+$\epsilon_{xc}=\beta \int(\rho_{\-}^\gamma+\rho_+^\gamma) dr^3$
+
 ------------
 	{
 	"name": ["H","OH,O,H}","H2,H,H}","Na2,Na,Na}","H2S,S,H,H}"],
