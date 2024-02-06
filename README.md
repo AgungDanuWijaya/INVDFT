@@ -17,7 +17,7 @@ INVDFT, a Java based software, employs the SCF technique to solve the KSDFT equa
   - https://netbeans.apache.org/front/main/download/index.html
   - Import project INVDFT
 ## Example of parameter optimization
-
+### LSDA XC 
 $\epsilon_{xc}=\beta \int(\rho_{\-}^\gamma+\rho_+^\gamma) dr^3$
 
 Edit file drv_ann.java on ann package
@@ -92,6 +92,7 @@ Run file cluster.java on Interface package <br />
 SELECT * FROM Quantum.cluster; <br />
 SELECT * FROM Quantum.error; <br />
 
+### Neural-Like XC 
 <img src="https://github.com/AgungDanuWijaya/INVDFT/blob/main/Screenshot%20from%202024-02-06%2015-20-15.png" alt="dftk logo" height="200px" />
 
 ------------
