@@ -20,6 +20,8 @@ INVDFT, a Java based software, employs the SCF technique to solve the KSDFT equa
 
 $\epsilon_{xc}=\beta \int(\rho_{\-}^\gamma+\rho_+^\gamma) dr^3$
 
+Edit file drv_ann.java on ann package
+
 ------------
 	public double[] Ex(main_function kernel, double input[]) {
 	        double Ex_ann[] = new double[input.length];
@@ -31,6 +33,9 @@ $\epsilon_{xc}=\beta \int(\rho_{\-}^\gamma+\rho_+^\gamma) dr^3$
 	        return Ex_ann;
 	}
 ------------
+
+Edit data_geo on file Interface.java in Interface package
+
 ------------
 	{
 	"name": ["H","OH,O,H}","H2,H,H}","Na2,Na,Na}","H2S,S,H,H}"],
@@ -42,6 +47,8 @@ $\epsilon_{xc}=\beta \int(\rho_{\-}^\gamma+\rho_+^\gamma) dr^3$
 	"name_ann": "ann_new_dft"
 	}
 ------------
+
+Final file Interface.java after modification
 
 ------------
     public String method = "nr";
@@ -79,6 +86,11 @@ $\epsilon_{xc}=\beta \int(\rho_{\-}^\gamma+\rho_+^\gamma) dr^3$
     public String user_param = "1";
     
 ------------
+
+Run file inversi.java on Interface package <br />
+Run file cluster.java on Interface package <br />
+SELECT * FROM Quantum.cluster; <br />
+SELECT * FROM Quantum.error; <br />
 
 <img src="https://github.com/AgungDanuWijaya/INVDFT/blob/main/Screenshot%20from%202024-02-06%2015-20-15.png" alt="dftk logo" height="200px" />
 
@@ -148,6 +160,9 @@ $\epsilon_{xc}=\beta \int(\rho_{\-}^\gamma+\rho_+^\gamma) dr^3$
 ------------
 
 ## Example of DFT Calculation
+
+Edit data_geo on file Interface.java in Interface package
+
 ------------
 	H2O;
 	Water;
@@ -158,3 +173,5 @@ $\epsilon_{xc}=\beta \int(\rho_{\-}^\gamma+\rho_+^\gamma) dr^3$
 	"atom": ["O", "H","H"],
 	"Spin_dn": 5, "Spin_up": 5};
 ------------
+
+run file run_dft.java in Interface package
