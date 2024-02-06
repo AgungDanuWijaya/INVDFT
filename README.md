@@ -177,3 +177,19 @@ Edit data_geo on file Interface.java in Interface package
 run file run_dft.java in Interface package
 
 ## Save Integral
+
+Edit data_geo on file Interface.java in Interface package
+
+------------
+	H2O;
+	Water;
+	{"xyz": 
+	{"1": [0.0000, 0.0000, 0.1173], 
+	"2": [0.0000, 0.7572, -0.4692],
+	"3": [0.0000, -0.7572, -0.4692]}, 
+	"atom": ["O", "H","H"],
+	"Spin_dn": 5, "Spin_up": 5};
+------------
+
+run file save_int.java in Interface package
+
