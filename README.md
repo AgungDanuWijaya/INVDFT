@@ -10,17 +10,15 @@ INVDFT, a Java based software, employs the SCF technique to solve the KSDFT equa
 - Java (https://www.java.com/en/download/) version >= 11
 -  MySQL
 ## Instalation 
-- Install mysql
-  - https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-20-04
-  - Import SQL file
-- Install Netbeans
-  - https://netbeans.apache.org/front/main/download/index.html
-  - Import project INVDFT
-## Example of parameter optimization
-### LSDA XC 
-$\epsilon_{xc}=\beta \int(\rho_{\-}^\gamma+\rho_+^\gamma) dr^3$
-
-Edit file drv_ann.java on ann package
+-  Mysql configuration
+  - Instal Mysql, for detail step you can refer tp this website https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-20-04
+  - Import Dump20240206.sql file to database
+-  Netbeans configuration
+  - Install netbeans from https://netbeans.apache.org/front/main/download/index.html
+  - Import project INVDFT to netbeans project
+## Example of LSDA XC parameter optimization
+Misalkan kita mempunyai model LSDA XC sebagai berikut : $\epsilon_{xc}=\beta \int(\rho_{\-}^\gamma+\rho_+^\gamma) dr^3$. Kita  akan mencari $\beta$ dan $\gamma$ dengan menggunkaan INVDFT. Langkah pertama adalah mendefinisikan model XC agar dikenali oleh INVDFT. Definisi model xc dapat dilakukan pada drv_ann.java pada ann package.
+Untuk model model LSDA, potongan script akhir dari drv_ann.java adalah sebagai berikut.
 
 ------------
 	public double[] Ex(main_function kernel, double input[]) {
@@ -33,8 +31,7 @@ Edit file drv_ann.java on ann package
 	        return Ex_ann;
 	}
 ------------
-
-Edit data_geo on file Interface.java in Interface package
+Setelah kita mendefinisikan model XC, kita akan memberikan data ajar yang digunakan untuk fitting parameter dalam model LSDA. Penginputan data ajar dapat dilakukan pada variabel data_geo dalam file Interface.java di Interface package. Data ajr yang digunakan terdiri dari Atomisasi energi dan energi dari molekul. Pada contoh dibawah kita menggunakan "H"=-0.5 Hartree sebagau data ajar enrgi molekul dan "OH,O,H}"=-0.162231075697211 Hartree sebagai data ajar atomisasi energi dari molekul OH.
 
 ------------
 	{
@@ -48,7 +45,7 @@ Edit data_geo on file Interface.java in Interface package
 	}
 ------------
 
-Final file Interface.java after modification
+Setalah melakukan penginputan data ajar pada variabel data_geo, script final dari file Interface.java menjadi berikut.
 
 ------------
     public String method = "nr";
@@ -86,14 +83,19 @@ Final file Interface.java after modification
     public String user_param = "1";
     
 ------------
+Setelah semua persiapan selesai dilakukan, kita dapat memulai proses optimisasi. Langkah-langkah dari proses optimisasi adalah sebagai berikut.
+- Run file inversi.java on Interface package
+- Run file cluster.java on Interface package
+- run script SELECT * FROM Quantum.error on mysql server to see error on every iteration; 
 
-Run file inversi.java on Interface package <br />
-Run file cluster.java on Interface package <br />
-SELECT * FROM Quantum.cluster; <br />
-SELECT * FROM Quantum.error; <br />
+## Example of Neural-Like XC parameter optimization
+Misal kita akan membuat model XC dari gambar dibawah.
 
-### Neural-Like XC 
 <img src="https://github.com/AgungDanuWijaya/INVDFT/blob/main/Screenshot%20from%202024-02-06%2015-20-15.png" alt="dftk logo" height="200px" />
+
+Langkah pertama adalah mendefinisikan model neural like XC agar dikenali oleh INVDFT. Definisi model xc dapat dilakukan pada drv_ann.java pada ann package. Untuk model model neural like, potongan script akhir dari drv_ann.java adalah sebagai berikut. Pada script dibawah input berperan sebagai $\rho$, gamma berperan sebagai $\nabla \rho$, dan gammas berperan sebagai $\nabla^2 \rho$.
+
+
 
 ------------
  	public double[] Exc_meta(main_function kernel, double input[], double gama[], double gamas[]) {
@@ -122,6 +124,9 @@ SELECT * FROM Quantum.error; <br />
         return Ex_ann;
     	}
 ------------
+
+Kemudian menginput data ajar pada file interface.java. Data ajar diinput pada variabel data_geo. Contoh script dapat dilihat dibawah.
+
 ------------
     public String method = "nr";
     public String thr_nri = "1000";
@@ -159,6 +164,8 @@ SELECT * FROM Quantum.error; <br />
    
     
 ------------
+
+Langkah berikutnya sama dengan langkah pada contoh LSDA XC parameter optimization
 
 ## Example of DFT Calculation
 
