@@ -8,12 +8,22 @@ INVDFT, a Java based software, employs the SCF technique to solve the KSDFT equa
 ## Requirements
 - Linux OS
 - Java (https://www.java.com/en/download/) version >= 11
--  MySQL for training ANN Exchange
+-  MySQL
 ## Example of parameter optimization
 
-The LSDA model in equation  can be simplified to equation. We will demonstrate how to use INVDFT to find the parameters $\beta, \gamma$ in equation and then compare it with the LSDA model, where the LSDA model has $\beta=-0.930525$ and $\gamma=1.3333$. 
 $\epsilon_{xc}=\beta \int(\rho_{\-}^\gamma+\rho_+^\gamma) dr^3$
 
+------------
+	public double[] Ex(main_function kernel, double input[]) {
+	        double Ex_ann[] = new double[input.length];
+	        ann c = new ann();
+	        for (int i = 0; i < input.length; i++) {
+	            double[] rho = {input[i]};
+	            Ex_ann[i] = kernel.weight[2][0][0][1] * Math.pow(input[i], kernel.weight[2][0][0][0]);
+	        }
+	        return Ex_ann;
+	}
+------------
 ------------
 	{
 	"name": ["H","OH,O,H}","H2,H,H}","Na2,Na,Na}","H2S,S,H,H}"],
@@ -25,6 +35,44 @@ $\epsilon_{xc}=\beta \int(\rho_{\-}^\gamma+\rho_+^\gamma) dr^3$
 	"name_ann": "ann_new_dft"
 	}
 ------------
+
+------------
+    public String method = "nr";
+    public String thr_nri = "1000";
+    public String thr_eri = "80000";
+    public String out = "";
+    public String url_db = "jdbc:mysql://127.0.0.1:3306/";
+    public String user_db = "user_db";
+    public String pass_db = "pass_db";
+    public double proses_int = 0;
+    public int print = 0;
+    public String ann_conf = "1,1";
+    public String data_src = "MySQL";//[MySQL,Manual]
+    public String dens = "0";
+    public String basis = "6-31g";
+    public boolean int_stat = false;
+    public String conv = "0.000001";
+    public String mix = "0.75";
+    public String exc_tipe = "ANN";
+    public String base = "/home/agung/project/Quantum-20211024T084747Z-001 (2)/Quantum (copy)/JQC_data";
+    public String name_exc = "ann_new_dft";
+    public String tugas = "1";
+    public String st = "0.1";
+    public int cluster_num = 1;
+    public String data_geo = "{\n"
+            + "\"name\": [\"H\",\"OH,O,H}\",\"H2,H,H}\",\"Na2,Na,Na}\",\"H2S,S,H,H}\",\"H2O2,H,H,O,O}\"],\n"
+            + "\"con\": 0.0015936254980079682,\n"
+            + "\"re\": [\n"
+            + "	[-0.5],[-0.162231075697211],[-0.164621513944223], [-0.0264541832669323],[-0.27601593625498],[-0.40207171314741]\n"
+            + "                          ],\n"
+            + "\"simpul\": [1,1],\n"
+            + "\"name_ann\": \"ann_new_dft\"\n"
+            + "}";
+    public double pa_ne[] = {1.0, 0.000000001};
+    public String user_param = "1";
+    
+------------
+
 ## Example of DFT Calculation
 ------------
 	H2O;
@@ -36,4 +84,3 @@ $\epsilon_{xc}=\beta \int(\rho_{\-}^\gamma+\rho_+^\gamma) dr^3$
 	"atom": ["O", "H","H"],
 	"Spin_dn": 5, "Spin_up": 5};
 ------------
-## Example of Hartree Fock Calculation
