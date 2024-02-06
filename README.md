@@ -11,14 +11,14 @@ INVDFT, a Java based software, employs the SCF technique to solve the KSDFT equa
 -  MySQL
 ## Instalation 
 -  Mysql configuration
-  - Instal Mysql, for detail step you can refer tp this website https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-20-04
+  - Install Mysql, for detail step you can refer tp this website https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-20-04
   - Import Dump20240206.sql file to database
 -  Netbeans configuration
   - Install netbeans from https://netbeans.apache.org/front/main/download/index.html
   - Import project INVDFT to netbeans project
 ## Example of LSDA XC parameter optimization
-Misalkan kita mempunyai model LSDA XC sebagai berikut : $\epsilon_{xc}=\beta \int(\rho_{\-}^\gamma+\rho_+^\gamma) dr^3$. Kita  akan mencari $\beta$ dan $\gamma$ dengan menggunkaan INVDFT. Langkah pertama adalah mendefinisikan model XC agar dikenali oleh INVDFT. Definisi model xc dapat dilakukan pada drv_ann.java pada ann package.
-Untuk model model LSDA, potongan script akhir dari drv_ann.java adalah sebagai berikut.
+Suppose we have the LSDA XC model as follows: $\epsilon_{xc}=\beta \int(\rho_{-}^\gamma+\rho_+^\gamma) dr^3$. We will find $\beta$ and $\gamma$ using INVDFT. The first step is to define the XC model to be recognized by INVDFT. The definition of the xc model can be done in drv_ann.java in the ann package.
+For the LSDA model, the final script section of drv_ann.java is as follows.
 
 ------------
 	public double[] Ex(main_function kernel, double input[]) {
@@ -31,7 +31,7 @@ Untuk model model LSDA, potongan script akhir dari drv_ann.java adalah sebagai b
 	        return Ex_ann;
 	}
 ------------
-Setelah kita mendefinisikan model XC, kita akan memberikan data ajar yang digunakan untuk fitting parameter dalam model LSDA. Penginputan data ajar dapat dilakukan pada variabel data_geo dalam file Interface.java di Interface package. Data ajr yang digunakan terdiri dari Atomisasi energi dan energi dari molekul. Pada contoh dibawah kita menggunakan "H"=-0.5 Hartree sebagau data ajar enrgi molekul dan "OH,O,H}"=-0.162231075697211 Hartree sebagai data ajar atomisasi energi dari molekul OH.
+After defining the XC model, we will provide training data used to fit parameters in the LSDA model. Inputting training data can be done in the variable data_geo in the Interface.java file in the Interface package. The training data used consists of Atomization energy and energy of molecules. In the example below, we use "H"=-0.5 Hartree as the molecular energy training data and "OH,O,H}"=-0.162231075697211 Hartree as the atomization energy training data for the OH molecule.
 
 ------------
 	{
@@ -45,7 +45,7 @@ Setelah kita mendefinisikan model XC, kita akan memberikan data ajar yang diguna
 	}
 ------------
 
-Setalah melakukan penginputan data ajar pada variabel data_geo, script final dari file Interface.java menjadi berikut.
+After inputting the training data into the data_geo variable, the final script of the Interface.java file becomes as follows:
 
 ------------
     public String method = "nr";
@@ -83,17 +83,18 @@ Setalah melakukan penginputan data ajar pada variabel data_geo, script final dar
     public String user_param = "1";
     
 ------------
-Setelah semua persiapan selesai dilakukan, kita dapat memulai proses optimisasi. Langkah-langkah dari proses optimisasi adalah sebagai berikut.
-- Run file inversi.java on Interface package
-- Run file cluster.java on Interface package
-- run script SELECT * FROM Quantum.error on mysql server to see error on every iteration; 
+After all preparations have been completed, we can begin the optimization process. The steps of the optimization process are as follows:
+
+- Run the inversi.java file in the Interface package.
+- Run the cluster.java file in the Interface package.
+- Run the script SELECT * FROM Quantum.error on the MySQL server to see errors on every iteration.
 
 ## Example of Neural-Like XC parameter optimization
-Misal kita akan membuat model XC dari gambar dibawah.
+Suppose we want to create an XC model based on the image below.
 
 <img src="https://github.com/AgungDanuWijaya/INVDFT/blob/main/Screenshot%20from%202024-02-06%2015-20-15.png" alt="dftk logo" height="200px" />
 
-Langkah pertama adalah mendefinisikan model neural like XC agar dikenali oleh INVDFT. Definisi model xc dapat dilakukan pada drv_ann.java pada ann package. Untuk model model neural like, potongan script akhir dari drv_ann.java adalah sebagai berikut. Pada script dibawah input berperan sebagai $\rho$, gamma berperan sebagai $\nabla \rho$, dan gammas berperan sebagai $\nabla^2 \rho$.
+The first step is to define the neural-like XC model to be recognized by INVDFT. The definition of the XC model can be done in drv_ann.java in the ann package. For the neural-like model, the final script section of drv_ann.java is as follows. In the script below, the input acts as $\rho$, gamma acts as $\nabla \rho$, and gammas act as $\nabla^2 \rho$.
 
 
 
@@ -125,7 +126,7 @@ Langkah pertama adalah mendefinisikan model neural like XC agar dikenali oleh IN
     	}
 ------------
 
-Kemudian menginput data ajar pada file interface.java. Data ajar diinput pada variabel data_geo. Contoh script dapat dilihat dibawah.
+Then input the training data in the file interface.java. The training data is input into the data_geo variable. An example script can be seen below.
 
 ------------
     public String method = "nr";
@@ -165,7 +166,7 @@ Kemudian menginput data ajar pada file interface.java. Data ajar diinput pada va
     
 ------------
 
-Langkah berikutnya sama dengan langkah pada contoh LSDA XC parameter optimization
+The next steps are the same as the steps in the example of LSDA XC parameter optimization.
 
 ## Example of DFT Calculation
 
