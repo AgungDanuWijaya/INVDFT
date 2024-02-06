@@ -9,6 +9,13 @@ INVDFT, a Java based software, employs the SCF technique to solve the KSDFT equa
 - Linux OS
 - Java (https://www.java.com/en/download/) version >= 11
 -  MySQL
+## Instalation 
+- Install mysql
+  - https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-20-04
+  - Import SQL file
+- Install Netbeans
+  - https://netbeans.apache.org/front/main/download/index.html
+  - Import project INVDFT
 ## Example of parameter optimization
 
 $\epsilon_{xc}=\beta \int(\rho_{\-}^\gamma+\rho_+^\gamma) dr^3$
@@ -72,6 +79,8 @@ $\epsilon_{xc}=\beta \int(\rho_{\-}^\gamma+\rho_+^\gamma) dr^3$
     public String user_param = "1";
     
 ------------
+
+<img src="https://github.com/AgungDanuWijaya/INVDFT/blob/main/Screenshot%20from%202024-02-06%2015-20-15.png" alt="dftk logo" height="200px" />
 
 ------------
  	public double[] Exc_meta(main_function kernel, double input[], double gama[], double gamas[]) {
