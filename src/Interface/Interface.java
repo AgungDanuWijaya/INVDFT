@@ -17,8 +17,8 @@ public class Interface {
     public String thr_eri = "80000";
     public String out = "";
     public String url_db = "jdbc:mysql://127.0.0.1:3306/";
-    public String user_db = "mabok_janda";
-    public String pass_db = "yut28092018DAM^";
+    public String user_db = "user_db";
+    public String pass_db = "pass_db";
     public double proses_int = 0;
     public int print = 0;
     public String ann_conf = "1,1";
