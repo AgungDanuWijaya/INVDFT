@@ -31,6 +31,7 @@ For the LSDA model, the final script section of drv_ann.java is as follows.
 	        return Ex_ann;
 	}
 ------------
+The initialization of kernel.weight[2][0][0][0] and kernel.weight[2][0][0][1] in the example above is done in the variable pa_ne[] = {1.0, 0.000000001} in the Interface.java. So in this example kernel.weight[2][0][0][0]=1.0 and kernel.weight[2][0][0][1]=0.000000001.
 After defining the XC model, we will provide training data used to fit parameters in the LSDA model. Inputting training data can be done in the variable data_geo in the Interface.java file in the Interface package. The training data used consists of Atomization energy and energy of molecules. In the example below, we use "H"=-0.5 Hartree as the molecular energy training data and "OH,O,H}"=-0.162231075697211 Hartree as the atomization energy training data for the OH molecule. Please remember,  that integrals for all molecular geometries used as teaching data must be saved first. This aims to ensure that integral calculations are not carried out repeatedly in the XC parameter optimization process.
 
 ------------
@@ -83,6 +84,7 @@ After inputting the training data into the data_geo variable, the final script o
     public String user_param = "1";
     
 ------------
+
 After all preparations have been completed, we can begin the optimization process. The steps of the optimization process are as follows:
 
 - Run the inversi.java file in the Interface package.
@@ -170,7 +172,7 @@ The next steps are the same as the steps in the example of LSDA XC parameter opt
 
 ## Example of DFT Calculation
 
-Edit data_geo on file Interface.java in Interface package
+Edit data_geo , proses_int, and data_src on file Interface.java in Interface package
 
 ------------
 	H2O;
@@ -183,8 +185,15 @@ Edit data_geo on file Interface.java in Interface package
 	"Spin_dn": 5, "Spin_up": 5};
 ------------
 
+------------
+proses_int = 1;
+data_src = "Manual";
+
+------------
+The variable process_int=1 aims to calculate the integral again according to the geometry in data_geo. Meanwhile, data_src="Manual", aims to ensure that the geometry used in DFT calculations uses the geometry in the data_geo variable, not from geometric data stored in the database.<p>
+
 run file run_dft.java in Interface package<p>
-Users can change the DFT function in the exc_tipe variable, where the available functions are LSDA, GGA_B_88, ANN, ann_metaGGA. ANN and ann_metaGGA are user-defined XC types.
+Users can change the XC functional in the exc_tipe variable, where the available functions are LSDA, GGA_B_88, ANN, ann_metaGGA. ANN and ann_metaGGA are user-defined XC types.
 
 ## Save Integral
 
