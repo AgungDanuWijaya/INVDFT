@@ -183,7 +183,8 @@ Edit data_geo on file Interface.java in Interface package
 	"Spin_dn": 5, "Spin_up": 5};
 ------------
 
-run file run_dft.java in Interface package
+run file run_dft.java in Interface package<p>
+Users can change the DFT function in the exc_tipe variable, where the available functions are LSDA, GGA_B_88, ANN, ann_metaGGA. ANN and ann_metaGGA are user-defined XC types.
 
 ## Save Integral
 
