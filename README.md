@@ -212,3 +212,5 @@ Edit data_geo on file Interface.java in Interface package
 
 run file save_int.java in Interface package
 
+
+For more detailed information, you can contact us at email: wijayadanuagung@gmail.com
