@@ -31,7 +31,7 @@ For the LSDA model, the final script section of drv_ann.java is as follows.
 	        return Ex_ann;
 	}
 ------------
-After defining the XC model, we will provide training data used to fit parameters in the LSDA model. Inputting training data can be done in the variable data_geo in the Interface.java file in the Interface package. The training data used consists of Atomization energy and energy of molecules. In the example below, we use "H"=-0.5 Hartree as the molecular energy training data and "OH,O,H}"=-0.162231075697211 Hartree as the atomization energy training data for the OH molecule.
+After defining the XC model, we will provide training data used to fit parameters in the LSDA model. Inputting training data can be done in the variable data_geo in the Interface.java file in the Interface package. The training data used consists of Atomization energy and energy of molecules. In the example below, we use "H"=-0.5 Hartree as the molecular energy training data and "OH,O,H}"=-0.162231075697211 Hartree as the atomization energy training data for the OH molecule. Please remember,  that integrals for all molecular geometries used as teaching data must be saved first. This aims to ensure that integral calculations are not carried out repeatedly in the XC parameter optimization process.
 
 ------------
 	{
