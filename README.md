@@ -59,7 +59,7 @@ After inputting the training data into the data_geo variable, the final script o
     public double proses_int = 0;
     public int print = 0;
     public String ann_conf = "1,1";
-    public String data_src = "MySQL";//[MySQL,Manual]
+    public String data_src = "MySQL";
     public String dens = "0";
     public String basis = "6-31g";
     public boolean int_stat = false;
@@ -141,13 +141,13 @@ Then input the training data in the file interface.java. The training data is in
     public double proses_int = 0;
     public int print = 0;
     public String ann_conf = "3,2,2,1";
-    public String data_src = "MySQL";//[MySQL,Manual]
+    public String data_src = "MySQL";
     public String dens = "0";
     public String basis = "6-31g";
     public boolean int_stat = false;
     public String conv = "0.000001";
     public String mix = "0.75";
-    public String exc_tipe = "ann_metaGGA";//ann_metaGGA//ANN
+    public String exc_tipe = "ann_metaGGA";
     public String base = "/home/agung/project/Quantum-20211024T084747Z-001 (2)/jNNDFT_publish_no_gui/JQC_data";
     public String name_exc = "ann_new_dft";
     public String tugas = "1";
@@ -200,18 +200,18 @@ the final script of the Interface.java file becomes as follows:
     public String thr_eri = "80000";
     public String out = "";
     public String url_db = "jdbc:mysql://127.0.0.1:3306/";
-    public String user_db = "mabok_janda";
-    public String pass_db = "yut28092018DAM^";
+    public String user_db = "user_db";
+    public String pass_db = "****";
     public double proses_int = 0;
     public int print = 0;
     public String ann_conf = "3,2,2,1";
-    public String data_src = "Manual";//[MySQL,Manual]
+    public String data_src = "Manual";
     public String dens = "2";
     public String basis = "6-31g";
     public boolean int_stat = true;
     public String conv = "0.000001";
     public String mix = "0.75";
-    public String exc_tipe = "LDA";//ann_metaGGA//ANN
+    public String exc_tipe = "LDA";
     public String base = "/home/agung/project/Quantum-20211024T084747Z-001 (2)/jNNDFT_publish_no_gui/JQC_data";
     public String name_exc = "ann_new_dft";
     public String tugas = "1";
@@ -229,8 +229,6 @@ the final script of the Interface.java file becomes as follows:
     public String user_param = "1";
     
 ------------
-
-
 
 
 run file run_dft.java in Interface package<p>
