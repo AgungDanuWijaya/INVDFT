@@ -192,23 +192,6 @@ data_src = "Manual";
 ------------
 The variable process_int=1 aims to calculate the integral again according to the geometry in data_geo. Meanwhile, data_src="Manual", aims to ensure that the geometry used in DFT calculations uses the geometry in the data_geo variable, not from geometric data stored in the database.<p>
 
-run file run_dft.java in Interface package<p>
-Users can change the XC functional in the exc_tipe variable, where the available functions are LSDA, GGA_B_88, ANN, ann_metaGGA. ANN and ann_metaGGA are user-defined XC types.
-
-## Save Integral
-
-Edit data_geo on file Interface.java in Interface package
-
-------------
-	H2O;
-	Water;
-	{"xyz": 
-	{"1": [0.0000, 0.0000, 0.1173], 
-	"2": [0.0000, 0.7572, -0.4692],
-	"3": [0.0000, -0.7572, -0.4692]}, 
-	"atom": ["O", "H","H"],
-	"Spin_dn": 5, "Spin_up": 5};
-------------
 the final script of the Interface.java file becomes as follows:
 
 ------------
@@ -249,8 +232,27 @@ the final script of the Interface.java file becomes as follows:
 
 
 
+
+run file run_dft.java in Interface package<p>
+Result from this calculation is -75.15381080452138 Ha<p>
+Users can change the XC functional in the exc_tipe variable, where the available functions are LSDA, GGA_B_88, ANN, ann_metaGGA. ANN and ann_metaGGA are user-defined XC types.
+
+## Save Integral
+
+Edit data_geo on file Interface.java in Interface package
+
+------------
+	H2O;
+	Water;
+	{"xyz": 
+	{"1": [0.0000, 0.0000, 0.1173], 
+	"2": [0.0000, 0.7572, -0.4692],
+	"3": [0.0000, -0.7572, -0.4692]}, 
+	"atom": ["O", "H","H"],
+	"Spin_dn": 5, "Spin_up": 5};
+------------
+
 run file save_int.java in Interface package
 
-Result from this calculation is -75.15381080452138 Hatree
 
 For more detailed information, you can contact us at email: wijayadanuagung@gmail.com
