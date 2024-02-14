@@ -217,35 +217,37 @@ the final script of the Interface.java file becomes as follows:
     public String thr_eri = "80000";
     public String out = "";
     public String url_db = "jdbc:mysql://127.0.0.1:3306/";
-    public String user_db = "db_user";
-    public String pass_db = "db_pass";
+    public String user_db = "mabok_janda";
+    public String pass_db = "yut28092018DAM^";
     public double proses_int = 0;
     public int print = 0;
-    public String ann_conf = "1,1";
-    public String data_src = "Manual";
+    public String ann_conf = "3,2,2,1";
+    public String data_src = "Manual";//[MySQL,Manual]
     public String dens = "2";
     public String basis = "6-31g";
     public boolean int_stat = true;
     public String conv = "0.000001";
     public String mix = "0.75";
-    public String exc_tipe = "LDA";
+    public String exc_tipe = "LDA";//ann_metaGGA//ANN
     public String base = "/home/agung/project/Quantum-20211024T084747Z-001 (2)/jNNDFT_publish_no_gui/JQC_data";
     public String name_exc = "ann_new_dft";
     public String tugas = "1";
     public String st = "0.1";
     public int cluster_num = 5;
     public String data_geo = "H2O;\n" +
-"Water;\n" +
-"{\"xyz\": \n" +
-"{\"1\": [0.0000, 0.0000, 0.1173], \n" +
-"\"2\": [0.0000, 0.7572, -0.4692],\n" +
-"\"3\": [0.0000, -0.7572, -0.4692]}, \n" +
-"\"atom\": [\"O\", \"H\",\"H\"],\n" +
-"\"Spin_dn\": 5, \"Spin_up\": 5};";
+	"Water;\n" +
+	"{\"xyz\": \n" +
+	"{\"1\": [0.0000, 0.0000, 0.1173], \n" +
+	"\"2\": [0.0000, 0.7572, -0.4692],\n" +
+	"\"3\": [0.0000, -0.7572, -0.4692]}, \n" +
+	"\"atom\": [\"O\", \"H\",\"H\"],\n" +
+	"\"Spin_dn\": 5, \"Spin_up\": 5};";
     public double pa_ne[] = {1.0, 0.000000001,1.0, 0.000000001};
     public String user_param = "1";
     
 ------------
+
+
 
 run file save_int.java in Interface package
 
