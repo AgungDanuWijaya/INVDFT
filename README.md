@@ -90,6 +90,7 @@ After all preparations have been completed, we can begin the optimization proces
 - Run the inversi.java file in the Interface package.
 - Run the cluster.java file in the Interface package.
 - Run the script SELECT * FROM Quantum.error on the MySQL server to see errors on every iteration.
+- Run the read_param.java file in the Interface package to read the output of parameter optimization
 
 ## Example of Neural-Like XC parameter optimization
 Suppose we want to create an XC model based on the image below.
