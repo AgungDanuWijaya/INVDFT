@@ -57,7 +57,7 @@ After defining the XC model, we will provide training data used to fit parameter
 After inputting the training data into the data_geo variable, the final script of the Interface.java file becomes as follows:
 
 ------------
-    public String method = "nr";
+    public String method = "monte";
     public String thr_nri = "1000";
     public String thr_eri = "80000";
     public String out = "";
@@ -140,7 +140,7 @@ The first step is to define the neural-like XC model to be recognized by INVDFT.
 Then input the training data in the file interface.java. The training data is input into the data_geo variable. An example script can be seen below.
 
 ------------
-    public String method = "nr";
+    public String method = "monte";
     public String thr_nri = "1000";
     public String thr_eri = "80000";
     public String out = "";
