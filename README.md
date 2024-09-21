@@ -1,5 +1,13 @@
 # INVDFT: Java Program to optimize parameter for Exchange Correlation Functional in  Density Functional Theory
 INVDFT, a Java based software, employs the SCF technique to solve the KSDFT equation. The optimization of XC function parameters in INVDFT is accomplished using the Newton-Raphson and Monte Carlo methods
+## Quickstart
+To test the example parameter results from INVDFT, you can run the python program below.
+- LYP CORRELATIONAL
+  - python b88_lyp(opt).py
+- B88 Exchange
+  - python b88(opt)_lyp.py
+- GGA XC neural networks(XCNN)
+  - python xcnn.py
 ## Features
 - Parameter optimization of Exchange Correlation Functional
 - SCF with electron density mixing
@@ -16,14 +24,6 @@ INVDFT, a Java based software, employs the SCF technique to solve the KSDFT equa
 -  Netbeans configuration
   - Install netbeans from https://netbeans.apache.org/front/main/download/index.html
   - Import project INVDFT to netbeans project
-## Quickstart
-To test the example parameter results from INVDFT, you can run the python program below.
-- LYP CORRELATIONAL
-  - python b88_lyp(opt).py
-- B88 Exchange
-  - python b88(opt)_lyp.py
-- GGA XC neural networks(XCNN)
-  - python xcnn.py
 ## Example of LSDA XC parameter optimization
 Suppose we have the LSDA XC model as follows: $\epsilon_{xc}=\beta \int(\rho_{-}^\gamma+\rho_+^\gamma) dr^3$. We will find $\beta$ and $\gamma$ using INVDFT. The first step is to define the XC model to be recognized by INVDFT. The definition of the xc model can be done in drv_ann.java in the ann package.
 For the LSDA model, the final script section of drv_ann.java is as follows.
