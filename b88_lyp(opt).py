@@ -6,10 +6,10 @@ import numpy
 from pyscf.geomopt.geometric_solver import (optimize)
 
 def lyp(a,b,gaa,gbb,gnn,i):
-    A = 0.06513211737123356
-    B = 0.16550543387395644
-    C = 0.1694065214864509
-    Dd = 0.5807106359304246
+    A = 0.04704448743596468
+    B = 0.14265014894505548
+    C = 0.1687438446723404
+    Dd = 0.3256412804361658
     n=a+b
     CF = (3.0 / 10.0) * math.pow(3.0 * math.pow(math.pi, 2), 2.0 / 3.0)
 
@@ -108,7 +108,7 @@ mol.atom = """8	0.0000	0.0000	0.1173
 1	0.0000	-0.7572	-0.4692"""
 mol.charge = 0
 mol.spin = 0
-mol.basis = "6-31G"
+mol.basis = "cc-pvdz"
 mol.build()
 mf = scf.UHF(mol)
 mol = optimize(mf, maxsteps=100)
