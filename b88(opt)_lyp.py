@@ -7,7 +7,7 @@ from pyscf.geomopt.geometric_solver import (optimize)
 def annn(rho01,gama):
     tau1=gama**0.5
     x = tau1 / (rho01 + 10E-20) ** (4.0 / 3.0)
-    b = 0.0035939430400305887
+    b=0.005460034938388633
     b88_g = -1.5 * (3.0 / 4.0 / math.pi) ** (1.0 / 3.0) - b * (x ** 2) / (1.0 + 6.0 * b * x * np.arcsinh(x))
 
     exc1 = rho01 ** (4.0 / 3.0 ) * b88_g
@@ -106,14 +106,16 @@ mol.atom = """8	0.0000	0.0000	0.1173
 1	0.0000	-0.7572	-0.4692"""
 mol.charge = 0
 mol.spin = 0
-mol.basis = "6-31G"
+mol.basis = "cc-pvdz"
 mol.build()
 mf = scf.UHF(mol)
-mol = optimize(mf, maxsteps=100)
+#mol = optimize(mf, maxsteps=100)
 mfl = dft.UKS(mol)
 mfl = mfl.define_xc_(eval_xc_gga, xctype='GGA')
+#mfl.xc="BLYP"
 mfl.level_shift = 0.5
-mfl.grids.level = 0
+mfl.grids.level = 3
 mfl.conv_tol = 0.000000001
 ae =  mfl.kernel()
 print(ae)
+#-76.36240360277088
