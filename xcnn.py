@@ -194,7 +194,7 @@ mol.atom = """8	0.0000	0.0000	0.1173
 1	0.0000	-0.7572	-0.4692"""
 mol.charge = 0
 mol.spin = 0
-mol.basis = "cc-pvdz"
+mol.basis = "aug-cc-pvdz"
 mol.build()
 mf = scf.UHF(mol)
 mfl = dft.UKS(mol)
