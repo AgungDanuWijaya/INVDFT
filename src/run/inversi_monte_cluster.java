@@ -176,7 +176,7 @@ public class inversi_monte_cluster {
                 double tot = 0;
                 
 
-                for (int l_ = 53; l_ <name.length; l_++) {
+                for (int l_ = 0; l_ <name.length; l_++) {
                     
                     int l=l_;
 
