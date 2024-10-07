@@ -96,7 +96,7 @@ After inputting the training data into the data_geo variable, the final script o
 After all preparations have been completed, we can begin the optimization process. The steps of the optimization process are as follows:
 
 - Run the inversi.java file in the Interface package.
-- Run the cluster.java file in the Interface package.
+- Run the inversi_cluster_solid.java file in the Interface package.
 - Run the script SELECT * FROM Quantum.error on the MySQL server to see errors on every iteration.
 - Run the read_param.java file in the Interface package to read the output of parameter optimization
 
